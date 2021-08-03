@@ -41,7 +41,7 @@ const AppEditMode = ({ Component, pageProps }) => {
 
 const AppLayout = ({ Component, pageProps }) => {
     return (
-        <Layout rawData={ pageProps } data={ pageProps.data?.getGlobalDocument?.data }>
+        <Layout data={ pageProps.data?.getGlobalDocument?.data }>
             <Component { ...pageProps } />
         </Layout>
     );

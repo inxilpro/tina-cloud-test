@@ -27,6 +27,7 @@
     "@heroicons/react": "^1.0.3",
     "@tailwindcss/typography": "^0.4.1",
     "@tinacms/auth": "^0.50.0",
+    "alpinejs": "^3.2.3",
     "final-form": "^4.20.2",
     "next": "^11.0.1",
     "next-svgr": "^0.0.2",

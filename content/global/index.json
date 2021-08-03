@@ -26,6 +26,28 @@
         "href": "/about"
       }
     ],
+    "categories": {
+      "solutions": [
+        {
+          "label": "One",
+          "href": "/"
+        },
+        {
+          "label": "Here is somethign",
+          "href": "/"
+        },
+        {
+          "label": "Here is something else",
+          "href": "/"
+        }
+      ],
+      "support": [
+        {
+          "label": "Get help",
+          "href": "/"
+        }
+      ]
+    },
     "social": {
       "facebook": "/fb",
       "twitter": "/tw",

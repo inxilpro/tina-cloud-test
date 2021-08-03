@@ -4,7 +4,7 @@ import layoutData from "../content/global/index.json";
 import Header from "./header";
 import Footer from "./footer";
 
-export const Layout = ({rawData = "", data = layoutData, children}) => {
+export const Layout = ({data = layoutData, children}) => {
     return (
         <>
             <Head>
@@ -37,6 +37,16 @@ export const layoutQueryFragment = `
         nav {
           label
           href
+        }
+        categories {
+          solutions {
+            label
+            href
+          }
+          support {
+            label
+            href
+          }
         }
         social {
           facebook

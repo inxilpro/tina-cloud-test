@@ -105,6 +105,94 @@
             },
             {
               "type": "object",
+              "label": "Footer Sections",
+              "name": "categories",
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Solutions",
+                  "name": "solutions",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Title",
+                      "name": "label",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "categories",
+                        "solutions",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "URL",
+                      "name": "href",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "categories",
+                        "solutions",
+                        "href"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "categories",
+                    "solutions"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Support",
+                  "name": "support",
+                  "list": true,
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Title",
+                      "name": "label",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "categories",
+                        "support",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "URL",
+                      "name": "href",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "categories",
+                        "support",
+                        "href"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "categories",
+                    "support"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "footer",
+                "categories"
+              ]
+            },
+            {
+              "type": "object",
               "label": "Social Links",
               "name": "social",
               "fields": [

@@ -2,33 +2,108 @@ import React from "react";
 import type {GlobalFooter} from "../.tina/__generated__/types";
 
 export default function Footer(props: GlobalFooter) {
-	const {nav, social} = props;
+	const {social, categories = {}} = props;
 	return (
 		<footer className="bg-brown-500 text-white flex-shrink-0">
 			<div className="container py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-				<div className={`flex space-x-6`}>
-					<div className={`flex-shrink-0`}>
-						<p className={`font-semibold`}>
-							Company Name
-						</p>
-						<address className={`text-sm not-italic`}>
-							Company Address<br />
-							Philadelphia, PA 19103
-						</address>
-					</div>
-					<div className={`flex-1`}>
-						<nav className="-mx-5 -my-2 flex flex-wrap justify-start" aria-label="Footer">
-							{nav.map((item) => (
-								<div key={item.label} className="px-5 py-2">
-									<a href={item.href} className="text-base text-white hover:text-yellow-500">
-										{item.label}
-									</a>
+				<div className={`xl:flex justify-between`}>
+					<div className={`space-y-8 sm:space-y-0 sm:flex sm:space-x-12`}>
+						<div className={`flex-shrink-0 pr-12`}>
+							<p className={`font-semibold mb-1`}>
+								Company Name
+							</p>
+							<address className={`text-sm not-italic`}>
+								Company Address<br />
+								Philadelphia, PA 19103
+							</address>
+							<div className={`flex flex-col space-y-1 mt-3 text-sm`}>
+								<div className={`flex items-center`}>
+									<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+										<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+									</svg>
+									(800) 555-5555
 								</div>
-							))}
-						</nav>
+								<div className={`flex items-center`}>
+									<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path strokeLinecap="round"
+										      strokeLinejoin="round"
+										      strokeWidth={2}
+										      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+									</svg>
+									info@us.com
+								</div>
+							</div>
+						</div>
+						
+						<div className={`space-y-8 sm:space-y-0 sm:flex sm:space-x-12 sm:ml-auto`}>
+							{('solutions' in categories) && (
+								<div>
+									<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
+										Solutions
+									</p>
+									<nav className="" aria-label="Solutions">
+										{categories.solutions.map((item) => (
+											<div key={item.label} className="pb-1">
+												<a href={item.href} className="text-base text-white hover:text-yellow-500">
+													{item.label}
+												</a>
+											</div>
+										))}
+									</nav>
+								</div>
+							)}
+							{('support' in categories) && (
+								<div>
+									<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
+										Support
+									</p>
+									<nav className="" aria-label="Solutions">
+										{categories.support.map((item) => (
+											<div key={item.label} className="pb-1">
+												<a href={item.href} className="text-base text-white hover:text-yellow-500">
+													{item.label}
+												</a>
+											</div>
+										))}
+									</nav>
+								</div>
+							)}
+						</div>
 					</div>
+					
+					<div className={`flex-shrink mt-6 xl:mt-0`}>
+						<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
+							Subscribe to our newsletter
+						</p>
+						<p className="mt-1 text-base xl:max-w-sm">
+							The latest news, articles, and resources, sent to your inbox weekly.
+						</p>
+						<form className="mt-4 sm:flex sm:max-w-sm">
+							<label htmlFor="email-address" className="sr-only">
+								Email address
+							</label>
+							<input
+								type="email"
+								name="email-address"
+								id="email-address"
+								autoComplete="email"
+								required
+								className="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400"
+								placeholder="Enter your email"
+							/>
+							<div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+								<button
+									type="submit"
+									className="w-full bg-yellow-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-yellow-500"
+								>
+									Subscribe
+								</button>
+							</div>
+						</form>
+					</div>
+					
 				</div>
-				<div className={`flex flex-row-reverse justify-between mt-6`}>
+				<div className={`flex flex-row-reverse justify-between items-center mt-6`}>
 					<div className="mt-8 flex justify-center space-x-6">
 						{Object.entries(social).map(([name, href]) => (
 							<a key={name} href={href} className="text-white hover:text-yellow-500">
@@ -37,8 +112,8 @@ export default function Footer(props: GlobalFooter) {
 							</a>
 						))}
 					</div>
-					<p className="mt-8 text-center text-base">
-						&copy; 2020 All rights reserved.
+					<p className="mt-8 text-center text-sm">
+						&copy; {new Date().getFullYear()} All rights reserved.
 					</p>
 				</div>
 			</div>
