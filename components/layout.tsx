@@ -11,9 +11,9 @@ export const Layout = ({rawData = "", data = layoutData, children}) => {
                 <title>Tina</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <div className={`min-h-screen flex flex-col`}>
+            <div className={`min-h-screen flex flex-col font-sans antialiased`}>
                 <Header {...data.header} />
-                <div className={`container`}>
+                <div className={`container flex-grow`}>
                     <div className={`py-8`}>
                         {children}
                     </div>

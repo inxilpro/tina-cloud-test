@@ -1,44 +1,35 @@
 {
   "header": {
-    "icon": {
-      "color": "orange",
-      "style": "float",
-      "name": "tina"
-    },
-    "color": "default",
     "nav": [
       {
-        "href": "",
-        "label": "Home"
+        "label": "Home",
+        "href": "/"
       },
       {
-        "href": "about",
-        "label": "About"
+        "label": "About Us",
+        "href": "/about"
       },
       {
-        "href": "posts",
-        "label": "Blog"
+        "label": "Our Blog",
+        "href": "/posts"
       }
     ]
   },
   "footer": {
-    "color": "default",
     "nav": [
       {
-        "href": "/",
-        "label": "Home"
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
       }
     ],
     "social": {
-      "facebook": "/",
-      "twitter": "/",
-      "instagram": "/"
+      "facebook": "/fb",
+      "twitter": "/tw",
+      "instagram": "/ig"
     }
-  },
-  "theme": {
-    "color": "blue",
-    "font": "sans",
-    "icon": "boxicon",
-    "darkMode": "system"
   }
 }

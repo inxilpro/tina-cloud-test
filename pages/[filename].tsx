@@ -1,10 +1,11 @@
 import {getStaticPropsForTina, staticRequest} from "tinacms";
 import {layoutQueryFragment} from "../components/layout";
 import type {PagesDocument} from "../.tina/__generated__/types";
+import Page from "../components/page";
 
 export default function HomePage(props: AsyncReturnType<typeof getStaticProps>["props"]) {
   return (
-      <pre children={JSON.stringify(props.data.getPagesDocument, null, 2)} />
+      <Page {...props.data.getPagesDocument} />
   );
 }
 
