@@ -27,10 +27,8 @@ blocks:
           color: red
           style: float
           name: code
-        title: Changed via Tina Cloud
-        text: >-
-          Aliquam blandit felis rhoncus, eleifend ipsum in, condimentum nibh.
-          Praesent ac faucibus risus, eu lacinia enim.
+        title: Changed on Vercel
+        text: This is edited via Tina Cloud in Vercel
       - icon:
           color: primary
           style: float
@@ -45,7 +43,7 @@ blocks:
         text: >-
           Edit global theme configuration with Tina. Change your theme's primary
           color, font, or icon set.
-    color: tint
+    color: primary
     _template: features
 ---
 
