@@ -260,6 +260,73 @@
             "pages",
             "title"
           ]
+        },
+        {
+          "type": "object",
+          "label": "Sections",
+          "name": "sections",
+          "list": true,
+          "templates": [
+            {
+              "name": "content",
+              "label": "Content",
+              "ui": {
+                "defaultItem": {
+                  "body": "Enter some content here!"
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "ui": {
+                    "component": "markdown"
+                  },
+                  "label": "Body",
+                  "name": "body",
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "White",
+                      "value": "white"
+                    },
+                    {
+                      "label": "Brown",
+                      "value": "brown"
+                    },
+                    {
+                      "label": "Yellow",
+                      "value": "yellow"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "sections",
+                "content"
+              ]
+            }
+          ],
+          "namespace": [
+            "pages",
+            "sections"
+          ]
         }
       ],
       "namespace": [

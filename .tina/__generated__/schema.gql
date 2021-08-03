@@ -142,8 +142,16 @@ type GlobalConnection implements Connection {
   edges: [GlobalConnectionEdges]
 }
 
+type PagesSectionsContent {
+  body: String
+  color: String
+}
+
+union PagesSections = PagesSectionsContent
+
 type Pages {
   title: String
+  sections: [PagesSections]
 }
 
 type PagesDocument implements Node & Document {
@@ -224,8 +232,18 @@ input GlobalMutation {
   footer: GlobalFooterMutation
 }
 
+input PagesSectionsContentMutation {
+  body: String
+  color: String
+}
+
+input PagesSectionsMutation {
+  content: PagesSectionsContentMutation
+}
+
 input PagesMutation {
   title: String
+  sections: [PagesSectionsMutation]
 }
 
 schema {

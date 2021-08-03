@@ -1,30 +1,36 @@
 import React from "react";
+import Markdown from "react-markdown";
 import type {PagesDocument} from "../.tina/__generated__/types";
 
 export default function Page(props: PagesDocument) {
 	return (
-		<div className="relative py-16 bg-white overflow-hidden">
-			<div className="relative px-4 sm:px-6 lg:px-8">
-				
-				<h1 className="my-12 text-4xl max-w-prose font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-					{props.data.title}
-				</h1>
-				
-				<div className="text-xl prose-xl max-w-prose">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-						ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-						occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-					
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-						ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-						occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-				</div>
+		<div className="relative overflow-hidden">
 			
+			<div className={`bg-brown-400 py-12 pt-36 text-white px-4 sm:px-0`}>
+				<div className={`container`}>
+					<h1 className="text-4xl max-w-prose font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">
+						{props.data.title}
+					</h1>
+				</div>
 			</div>
+			
+			{props.data.sections.map((section, i) => (
+				<div className={`py-8 px-4 sm:px-0 ${'yellow' === section.color ? 'bg-yellow-500 text-white font-semibold prose-2xl' : 'prose-lg'}`}>
+					<div className={`container`} key={i}>
+						<div className={`max-w-prose`}>
+							<Markdown>{section.body}</Markdown>
+						</div>
+					</div>
+				</div>
+			))}
+			
+			{/*<div className={`container`}>*/}
+			{/*	<pre*/}
+			{/*		className={`bg-gray-600 rounded p-4 text-white font-mono my-6`}*/}
+			{/*		children={JSON.stringify(props, null, 2)}*/}
+			{/*	/>*/}
+			{/*</div>*/}
+		
 		</div>
 	)
 }

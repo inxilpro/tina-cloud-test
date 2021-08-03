@@ -13,10 +13,8 @@ export const Layout = ({data = layoutData, children}) => {
             </Head>
             <div className={`min-h-screen flex flex-col font-sans antialiased`}>
                 <Header {...data.header} />
-                <div className={`container flex-grow`}>
-                    <div className={`py-8`}>
-                        {children}
-                    </div>
+                <div className={`flex-1`}>
+                    {children}
                 </div>
                 <Footer {...data.footer} />
             </div>

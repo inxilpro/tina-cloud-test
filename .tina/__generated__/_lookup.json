@@ -34,5 +34,12 @@
     "type": "PagesConnection",
     "resolveType": "collectionDocumentList",
     "collection": "pages"
+  },
+  "PagesSections": {
+    "type": "PagesSections",
+    "resolveType": "unionData",
+    "typeMap": {
+      "content": "PagesSectionsContent"
+    }
   }
 }
