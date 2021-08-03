@@ -94,6 +94,10 @@ module.exports = {
                 '900': '#000000'
             },
         },
+        boxShadow: {
+            ...defaultTheme.boxShadow,
+            menu: '0 -20px 25px -5px rgba(0, 0, 0, 0.2), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)',
+        },
         container: {
             center: true,
         },

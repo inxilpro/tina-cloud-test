@@ -1,6 +1,8 @@
 import React from "react";
 import Markdown from "react-markdown";
-import type {PagesDocument} from "../.tina/__generated__/types";
+// import { useForm } from "tinacms";
+// import { InlineForm } from "react-tinacms-inline";
+import type {PagesDocument, PagesSections} from "../.tina/__generated__/types";
 
 export default function Page(props: PagesDocument) {
 	return (
@@ -15,13 +17,7 @@ export default function Page(props: PagesDocument) {
 			</div>
 			
 			{props.data.sections.map((section, i) => (
-				<div className={`py-8 px-4 sm:px-0 ${'yellow' === section.color ? 'bg-yellow-500 text-white font-semibold prose-2xl' : 'prose-lg'}`}>
-					<div className={`container`} key={i}>
-						<div className={`max-w-prose`}>
-							<Markdown>{section.body}</Markdown>
-						</div>
-					</div>
-				</div>
+				<PagesSection key={i} {...section} />
 			))}
 			
 			<div className={`container`}>
@@ -33,4 +29,17 @@ export default function Page(props: PagesDocument) {
 		
 		</div>
 	)
+}
+
+function PagesSection(props: PagesSections)
+{
+	return (
+		<div className={`py-8 px-4 sm:px-0 ${'yellow' === props.color ? 'bg-yellow-500 text-white font-semibold prose-2xl' : 'prose-lg'}`}>
+			<div className={`container`}>
+				<div className={`max-w-prose`}>
+					<Markdown>{props.body}</Markdown>
+				</div>
+			</div>
+		</div>
+	);
 }
