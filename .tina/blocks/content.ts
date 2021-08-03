@@ -1,4 +1,4 @@
-const contentBlockSchema = {
+const contentBlock = {
 	name: "content",
 	label: "Content",
 	ui: {
@@ -16,6 +16,23 @@ const contentBlockSchema = {
 			name: "body",
 		},
 		{
+			type: "object",
+			label: "Image",
+			name: "image",
+			fields: [
+				{
+					name: "src",
+					label: "Image",
+					type: "image",
+				},
+				{
+					name: "alt",
+					label: "Assistive Text",
+					type: "string",
+				},
+			],
+		},
+		{
 			type: "string",
 			label: "Color",
 			name: "color",
@@ -28,4 +45,4 @@ const contentBlockSchema = {
 	],
 };
 
-export default contentBlockSchema;
+export default contentBlock;

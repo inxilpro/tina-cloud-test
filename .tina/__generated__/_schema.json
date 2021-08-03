@@ -291,6 +291,43 @@
                   ]
                 },
                 {
+                  "type": "object",
+                  "label": "Image",
+                  "name": "image",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "type": "image",
+                      "namespace": [
+                        "pages",
+                        "sections",
+                        "content",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Assistive Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "sections",
+                        "content",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "image"
+                  ]
+                },
+                {
                   "type": "string",
                   "label": "Color",
                   "name": "color",

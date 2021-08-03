@@ -142,8 +142,14 @@ type GlobalConnection implements Connection {
   edges: [GlobalConnectionEdges]
 }
 
+type PagesSectionsContentImage {
+  src: String
+  alt: String
+}
+
 type PagesSectionsContent {
   body: String
+  image: PagesSectionsContentImage
   color: String
 }
 
@@ -232,8 +238,14 @@ input GlobalMutation {
   footer: GlobalFooterMutation
 }
 
+input PagesSectionsContentImageMutation {
+  src: String
+  alt: String
+}
+
 input PagesSectionsContentMutation {
   body: String
+  image: PagesSectionsContentImageMutation
   color: String
 }
 

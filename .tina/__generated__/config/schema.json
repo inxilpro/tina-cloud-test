@@ -168,6 +168,23 @@
                   "name": "body"
                 },
                 {
+                  "type": "object",
+                  "label": "Image",
+                  "name": "image",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "type": "image"
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Assistive Text",
+                      "type": "string"
+                    }
+                  ]
+                },
+                {
                   "type": "string",
                   "label": "Color",
                   "name": "color",

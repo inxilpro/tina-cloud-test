@@ -25,6 +25,10 @@ export const getStaticProps = async ({params}) => {
               ... on PagesSectionsContent {
                 body
                 color
+                image {
+                  src
+                  alt
+                }
               }
             }
           }

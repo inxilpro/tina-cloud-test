@@ -24,12 +24,12 @@ export default function Page(props: PagesDocument) {
 				</div>
 			))}
 			
-			{/*<div className={`container`}>*/}
-			{/*	<pre*/}
-			{/*		className={`bg-gray-600 rounded p-4 text-white font-mono my-6`}*/}
-			{/*		children={JSON.stringify(props, null, 2)}*/}
-			{/*	/>*/}
-			{/*</div>*/}
+			<div className={`container`}>
+				<pre
+					className={`bg-gray-600 rounded p-4 text-white font-mono my-6`}
+					children={JSON.stringify(props, null, 2)}
+				/>
+			</div>
 		
 		</div>
 	)

@@ -1,4 +1,4 @@
-import contentBlockSchema from "../blocks/content";
+import contentBlock from "../blocks/content";
 
 const pagesCollection = {
 	label: "Pages",
@@ -16,7 +16,7 @@ const pagesCollection = {
 			name: "sections",
 			list: true,
 			templates: [
-				contentBlockSchema
+				contentBlock
 			],
 		},
 	],

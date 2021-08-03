@@ -233,9 +233,16 @@ export type GlobalConnection = Connection & {
   edges?: Maybe<Array<Maybe<GlobalConnectionEdges>>>;
 };
 
+export type PagesSectionsContentImage = {
+  __typename?: 'PagesSectionsContentImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
 export type PagesSectionsContent = {
   __typename?: 'PagesSectionsContent';
   body?: Maybe<Scalars['String']>;
+  image?: Maybe<PagesSectionsContentImage>;
   color?: Maybe<Scalars['String']>;
 };
 
@@ -355,8 +362,14 @@ export type GlobalMutation = {
   footer?: Maybe<GlobalFooterMutation>;
 };
 
+export type PagesSectionsContentImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
 export type PagesSectionsContentMutation = {
   body?: Maybe<Scalars['String']>;
+  image?: Maybe<PagesSectionsContentImageMutation>;
   color?: Maybe<Scalars['String']>;
 };
 
