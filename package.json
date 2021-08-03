@@ -9,6 +9,8 @@
     "export": "yarn build && next export"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
     "@tinacms/cli": "^0.52.0",
     "@types/js-cookie": "^2.2.6",
     "@types/node": "^16.4.10",
@@ -22,6 +24,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.3.0",
+    "@heroicons/react": "^1.0.3",
     "@tailwindcss/typography": "^0.4.1",
     "@tinacms/auth": "^0.50.0",
     "final-form": "^4.20.2",

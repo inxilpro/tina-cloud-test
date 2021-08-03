@@ -3,9 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "posts",
       "global",
-      "authors",
       "pages"
     ]
   },
@@ -17,20 +15,6 @@
     "type": "DocumentNode",
     "resolveType": "multiCollectionDocument"
   },
-  "PostsAuthorDocument": {
-    "type": "PostsAuthorDocument",
-    "resolveType": "multiCollectionDocument"
-  },
-  "PostsDocument": {
-    "type": "PostsDocument",
-    "resolveType": "collectionDocument",
-    "collection": "posts"
-  },
-  "PostsConnection": {
-    "type": "PostsConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "posts"
-  },
   "GlobalDocument": {
     "type": "GlobalDocument",
     "resolveType": "collectionDocument",
@@ -40,26 +24,6 @@
     "type": "GlobalConnection",
     "resolveType": "collectionDocumentList",
     "collection": "global"
-  },
-  "AuthorsDocument": {
-    "type": "AuthorsDocument",
-    "resolveType": "collectionDocument",
-    "collection": "authors"
-  },
-  "AuthorsConnection": {
-    "type": "AuthorsConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "authors"
-  },
-  "PagesBlocks": {
-    "type": "PagesBlocks",
-    "resolveType": "unionData",
-    "typeMap": {
-      "hero": "PagesBlocksHero",
-      "features": "PagesBlocksFeatures",
-      "content": "PagesBlocksContent",
-      "testimonial": "PagesBlocksTestimonial"
-    }
   },
   "PagesDocument": {
     "type": "PagesDocument",

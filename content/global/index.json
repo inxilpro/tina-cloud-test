@@ -23,6 +23,12 @@
   },
   "footer": {
     "color": "default",
+    "nav": [
+      {
+        "href": "/",
+        "label": "Home"
+      }
+    ],
     "social": {
       "facebook": "/",
       "twitter": "/",
