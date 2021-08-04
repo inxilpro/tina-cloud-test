@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useRef, useState} from "react";
 import Link from "next/link";
 import {Popover, Transition} from '@headlessui/react'
 import type {GlobalHeader} from "../.tina/__generated__/types";
+import useScrollDirection, {SCROLL_UP, SCROLL_DOWN} from "../hooks/useScrollDirection";
 
 export default function Header(props: GlobalHeader) {
 	return <Popover
@@ -12,16 +13,33 @@ export default function Header(props: GlobalHeader) {
 function PopoverHeader({open, headerProps}) {
 	const headerRef = useRef(null);
 	const [headerHeight, setHeaderHeight] = useState(0);
+	const [hidden, setHidden] = useState(false);
+	const [previousDirection, setPreviousDirection] = useState(null);
+	const direction = useScrollDirection({ threshold: 200 });
 	
 	useEffect(() => {
 		setHeaderHeight(headerRef.current.offsetHeight ?? 0);
 	}, [open, headerRef.current]);
 	
+	useEffect(() => {
+		if (direction !== previousDirection) {
+			setHidden(SCROLL_DOWN === direction);
+			setPreviousDirection(direction);
+		}
+	}, [direction]);
+	
 	const {nav} = headerProps;
+	
+	const headerClasses = hidden
+		? `transform transition-transform -translate-y-full`
+		: `transform transition-transform translate-y-0`;
 	
 	return (
 		<>
-			<header ref={headerRef} className="bg-white text-brown-800 flex-shrink-0 shadow-lg border-b border-brown-100 fixed w-full z-10">
+			<header 
+				ref={headerRef} 
+				className={`${headerClasses} bg-white text-brown-800 flex-shrink-0 shadow-lg border-b border-brown-100 fixed w-full z-10`}
+			>
 				<nav className="container px-4 sm:px-6 lg:px-8" aria-label="Top">
 					<div className="w-full py-6 flex items-center justify-between">
 						<div className="flex items-center">

@@ -34,11 +34,14 @@ export default function Page(props: PagesDocument) {
 function PagesSection(props: PagesSections)
 {
 	return (
-		<div className={`py-8 px-4 sm:px-0 ${'yellow' === props.color ? 'bg-yellow-500 text-white font-semibold prose-2xl' : 'prose-lg'}`}>
-			<div className={`container`}>
-				<div className={`max-w-prose`}>
+		<div className={`py-8 px-4 sm:px-0 ${'yellow' === props.color ? 'bg-yellow-500 text-white font-semibold' : ''}`}>
+			<div className={`container flex`}>
+				<div className={`max-w-prose prose-2xl`}>
 					<Markdown>{props.body}</Markdown>
 				</div>
+				{!!props.image?.src && (
+					<img className={`max-w-[33%]`} src={props.image.src} alt={props.image.alt} />
+				)}
 			</div>
 		</div>
 	);

@@ -2,6 +2,10 @@
 title: Homepage
 sections:
   - body: This is the intro section.
+    image:
+      src: >-
+        http://res.cloudinary.com/dkl9taxi0/image/upload/v1628046126/x-localized-block_uw5wcg.png
+      alt: Alt text
     color: brown
     _template: content
   - body: >-
