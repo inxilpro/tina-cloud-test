@@ -16,16 +16,6 @@
     ]
   },
   "footer": {
-    "nav": [
-      {
-        "label": "Home",
-        "href": "/"
-      },
-      {
-        "label": "About",
-        "href": "/about"
-      }
-    ],
     "categories": {
       "solutions": [
         {
