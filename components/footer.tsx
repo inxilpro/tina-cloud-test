@@ -4,7 +4,7 @@ import type {GlobalFooter} from "../.tina/__generated__/types";
 export default function Footer(props: GlobalFooter) {
 	const {social, links} = props;
 	return (
-		<footer className="bg-brown-500 text-white flex-shrink-0">
+		<footer className="bg-gray-900 text-white flex-shrink-0">
 			<div className="container py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
 				<div className={`xl:flex justify-between`}>
 					<div className={`space-y-8 sm:space-y-0 sm:flex sm:space-x-12`}>

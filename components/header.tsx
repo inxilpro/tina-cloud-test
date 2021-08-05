@@ -3,6 +3,7 @@ import Link from "next/link";
 import {Popover, Transition} from '@headlessui/react'
 import type {GlobalHeader} from "../.tina/__generated__/types";
 import useScrollDirection, {SCROLL_UP, SCROLL_DOWN} from "../hooks/useScrollDirection";
+import useScrollPosition, { TOP, BOTTOM } from "../hooks/useScrollPosition";
 
 export default function Header(props: GlobalHeader) {
 	return <Popover
@@ -13,6 +14,8 @@ export default function Header(props: GlobalHeader) {
 function PopoverHeader({open, headerProps}) {
 	const headerRef = useRef(null);
 	const [headerHeight, setHeaderHeight] = useState(0);
+	const [atTop, setAtTop] = useState(false);
+	const [atBottom, setAtBottom] = useState(false);
 	const [hidden, setHidden] = useState(false);
 	const [previousDirection, setPreviousDirection] = useState(null);
 	const direction = useScrollDirection({ threshold: 200 });
@@ -28,9 +31,14 @@ function PopoverHeader({open, headerProps}) {
 		}
 	}, [direction]);
 	
+	useScrollPosition((offset, keyword) => {
+		setAtTop(TOP === keyword);
+		setAtBottom(BOTTOM === keyword);
+	});
+	
 	const {nav = []} = headerProps;
 	
-	const headerClasses = hidden
+	const headerClasses = (hidden && !atTop && !atBottom)
 		? `transform transition-transform -translate-y-full`
 		: `transform transition-transform translate-y-0`;
 	

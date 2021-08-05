@@ -11,7 +11,7 @@ const headerField = {
 			ui: {
 				defaultItem: {
 					uuid: "",
-					label: "Home",
+					label: "Change Me",
 					href: "/",
 				},
 			},

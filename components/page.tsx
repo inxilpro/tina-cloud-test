@@ -5,18 +5,19 @@ import Markdown from "react-markdown";
 import type {PagesDocument, PagesSections} from "../.tina/__generated__/types";
 
 export default function Page(props: PagesDocument) {
+	let { title, sections } = props.data;
 	return (
 		<div className="relative overflow-hidden">
 			
-			<div className={`bg-brown-400 py-12 pt-36 text-white px-4 sm:px-0`}>
+			<div className={`bg-gray-400 py-12 pt-36 text-white px-4 sm:px-0`}>
 				<div className={`container`}>
 					<h1 className="text-4xl max-w-prose font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">
-						{props.data.title}
+						{title}
 					</h1>
 				</div>
 			</div>
 			
-			{props.data.sections.map((section, i) => (
+			{ sections && sections.map((section, i) => (
 				<PagesSection key={i} {...section} />
 			))}
 			
@@ -34,13 +35,13 @@ export default function Page(props: PagesDocument) {
 function PagesSection(props: PagesSections)
 {
 	return (
-		<div className={`py-8 px-4 sm:px-0 ${'yellow' === props.color ? 'bg-yellow-500 text-white font-semibold' : ''}`}>
+		<div className={`py-8 px-4 sm:px-0 ${'yellow' === props.color ? 'bg-purple-500 text-white font-semibold' : ''}`}>
 			<div className={`container flex justify-between`}>
 				<div className={`max-w-prose prose-2xl`}>
 					<Markdown>{props.body}</Markdown>
 				</div>
 				{!!props.image?.src && (
-					<img className={`max-w-[50%]`} src={props.image.src} alt={props.image.alt} />
+					<img className={`ml-8 max-w-[50%]`} src={props.image.src} alt={props.image.alt} />
 				)}
 			</div>
 		</div>

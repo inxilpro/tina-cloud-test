@@ -4,6 +4,12 @@ const pagesCollection = {
 	label: "Page",
 	name: "pages",
 	path: "content/pages",
+	ui: {
+		defaultItem: {
+			title: "Page Title",
+			sections: [],
+		},
+	},
 	fields: [
 		{
 			type: "string",

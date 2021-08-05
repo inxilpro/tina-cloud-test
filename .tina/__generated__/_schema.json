@@ -4,6 +4,12 @@
       "label": "Page",
       "name": "pages",
       "path": "content/pages",
+      "ui": {
+        "defaultItem": {
+          "title": "Page Title",
+          "sections": []
+        }
+      },
       "fields": [
         {
           "type": "string",
@@ -157,7 +163,7 @@
               "ui": {
                 "defaultItem": {
                   "uuid": "",
-                  "label": "Home",
+                  "label": "Change Me",
                   "href": "/"
                 }
               },
@@ -228,7 +234,7 @@
                   "items": [
                     {
                       "uuid": "",
-                      "label": "Home",
+                      "label": "Change Me",
                       "href": "/"
                     }
                   ]

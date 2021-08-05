@@ -4,6 +4,7 @@ import { TinaEditProvider } from "tinacms/dist/edit-state";
 import { Layout } from "../components/layout";
 import { TinaCloudCloudinaryMediaStore } from "next-tinacms-cloudinary";
 import { v4 as uuid } from 'uuid';
+import { useEffect } from 'react';
 
 const TinaCMS = dynamic(() => import("tinacms"), { ssr: false });
 
@@ -12,11 +13,13 @@ const NEXT_PUBLIC_USE_LOCAL_CLIENT = Boolean(Number(process.env.NEXT_PUBLIC_USE_
 
 const App = (props) => {
     return (
-        <TinaEditProvider 
-            showEditButton={ true } 
-            editMode={ <AppEditMode { ...props } /> }
-            children={ <AppLayout { ...props } /> }
-        />
+        <>
+            <TinaEditProvider
+                showEditButton={ true }
+                editMode={ <AppEditMode { ...props } /> }
+                children={ <AppLayout { ...props } /> }
+            />
+        </>
     );
 };
 
@@ -24,15 +27,16 @@ const AppEditMode = ({ Component, pageProps }) => {
     const cmsCallback = (cms) => {
         cms.fields.add({
             name: 'uuid',
-            Component: ({ input, meta, field }) => {
+            Component: ({ input }) => {
                 let value = `${ input.value }`;
                 
-                if ('' === value) {
-                    value = uuid();
-                    input.onChange(value);
-                }
+                useEffect(() => {
+                    if ('' === value) {
+                        input.onChange(uuid());
+                    }
+                }, [value]);
                 
-                return <input {...{ ...input, value }} type="hidden" />;
+                return <input {...input} type="hidden" />;
             },
             validate: () => true,
         });
@@ -54,6 +58,10 @@ const AppEditMode = ({ Component, pageProps }) => {
                 return true;
             }
         });
+    
+        if ('uuid' in item) {
+            props.key = item.uuid;
+        }
     
         return props;
     };

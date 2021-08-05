@@ -12,7 +12,7 @@ const footerField = {
 				defaultItem: {
 					uuid: "",
 					title: "Footer Section",
-					items: [{uuid: "", label: "Home", href: "/"}]
+					items: [{uuid: "", label: "Change Me", href: "/"}]
 				},
 			},
 			fields: [
