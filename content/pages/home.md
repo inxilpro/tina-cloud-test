@@ -2,7 +2,8 @@
 title: Homepage
 sections:
   - uuid: d5bddefa-5122-447d-9157-f872992f65e2
-    body: Enter some content here.
+    body: This is a content edit made from **Tina Cloud** on **Vercel**.
+    color: yellow
     _template: content
   - uuid: aef11280-35d1-43f4-8aa1-7e0c45ca6cb8
     body: >-
