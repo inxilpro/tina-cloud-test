@@ -3,8 +3,8 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "global",
-      "pages"
+      "pages",
+      "global"
     ]
   },
   "Node": {

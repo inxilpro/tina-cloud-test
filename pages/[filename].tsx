@@ -15,6 +15,7 @@ export const getStaticProps = async ({params}) => {
       query ContentQuery($relativePath: String!) {
         ${layoutQueryFragment}
         getPagesDocument(relativePath: $relativePath) {
+          __typename
           id
           data {
             __typename
@@ -22,6 +23,8 @@ export const getStaticProps = async ({params}) => {
             sections {
               __typename
               ... on PagesSectionsContent {
+                __typename
+                uuid
                 body
                 color
                 image {

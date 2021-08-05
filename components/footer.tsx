@@ -36,14 +36,14 @@ export default function Footer(props: GlobalFooter) {
 						</div>
 						
 						<div className={`space-y-8 sm:space-y-0 sm:flex sm:space-x-12 sm:ml-auto`}>
-							{ links.map(({ title, items }) => (
-								<div key={ title }>
+							{ links.map(({ uuid, title, items }) => (
+								<div key={ uuid }>
 									<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
 										{ title }
 									</p>
 									<nav className="" aria-label="Solutions">
-										{items.map(({ label, href }, index) => (
-											<div key={index} className="pb-1">
+										{items.map(({ uuid, label, href }) => (
+											<div key={uuid} className="pb-1">
 												<a href={href} className="text-base text-white hover:text-yellow-500">
 													{label}
 												</a>

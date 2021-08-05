@@ -3,10 +3,20 @@ const contentBlock = {
 	label: "Content",
 	ui: {
 		defaultItem: {
+			uuid: "",
 			body: "Enter some content here!",
+			color: "white",
 		},
 	},
 	fields: [
+		{
+			type: "string",
+			label: "ID",
+			name: "uuid",
+			ui: {
+				component: "uuid",
+			}
+		},
 		{
 			type: "string",
 			ui: {

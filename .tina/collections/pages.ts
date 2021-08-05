@@ -1,7 +1,7 @@
 import contentBlock from "../blocks/content";
 
 const pagesCollection = {
-	label: "Pages",
+	label: "Page",
 	name: "pages",
 	path: "content/pages",
 	fields: [

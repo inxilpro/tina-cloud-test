@@ -1,7 +1,146 @@
 {
   "collections": [
     {
-      "label": "Global",
+      "label": "Page",
+      "name": "pages",
+      "path": "content/pages",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "pages",
+            "title"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Sections",
+          "name": "sections",
+          "list": true,
+          "templates": [
+            {
+              "name": "content",
+              "label": "Content",
+              "ui": {
+                "defaultItem": {
+                  "uuid": "",
+                  "body": "Enter some content here!",
+                  "color": "white"
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  },
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "uuid"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "ui": {
+                    "component": "markdown"
+                  },
+                  "label": "Body",
+                  "name": "body",
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Image",
+                  "name": "image",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "type": "image",
+                      "namespace": [
+                        "pages",
+                        "sections",
+                        "content",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Assistive Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "sections",
+                        "content",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "image"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "White",
+                      "value": "white"
+                    },
+                    {
+                      "label": "Brown",
+                      "value": "brown"
+                    },
+                    {
+                      "label": "Yellow",
+                      "value": "yellow"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "sections",
+                    "content",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "sections",
+                "content"
+              ]
+            }
+          ],
+          "namespace": [
+            "pages",
+            "sections"
+          ]
+        }
+      ],
+      "namespace": [
+        "pages"
+      ]
+    },
+    {
+      "label": "Site Navigation",
       "name": "global",
       "path": "content/global",
       "fields": [
@@ -17,11 +156,26 @@
               "list": true,
               "ui": {
                 "defaultItem": {
-                  "href": "home",
-                  "label": "Home"
+                  "uuid": "",
+                  "label": "Home",
+                  "href": "/"
                 }
               },
               "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  },
+                  "namespace": [
+                    "global",
+                    "header",
+                    "nav",
+                    "uuid"
+                  ]
+                },
                 {
                   "type": "string",
                   "label": "Label",
@@ -64,14 +218,16 @@
           "fields": [
             {
               "type": "object",
-              "label": "Links",
+              "label": "Sections",
               "name": "links",
               "list": true,
               "ui": {
                 "defaultItem": {
+                  "uuid": "",
                   "title": "Footer Section",
                   "items": [
                     {
+                      "uuid": "",
                       "label": "Home",
                       "href": "/"
                     }
@@ -79,6 +235,20 @@
                 }
               },
               "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  },
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "links",
+                    "uuid"
+                  ]
+                },
                 {
                   "type": "string",
                   "label": "Section Title",
@@ -95,7 +265,29 @@
                   "label": "Links",
                   "name": "items",
                   "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "uuid": "",
+                      "label": "Home",
+                      "href": "/"
+                    }
+                  },
                   "fields": [
+                    {
+                      "type": "string",
+                      "label": "ID",
+                      "name": "uuid",
+                      "ui": {
+                        "component": "uuid"
+                      },
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "links",
+                        "items",
+                        "uuid"
+                      ]
+                    },
                     {
                       "type": "string",
                       "label": "Link Title",
@@ -189,129 +381,6 @@
       ],
       "namespace": [
         "global"
-      ]
-    },
-    {
-      "label": "Pages",
-      "name": "pages",
-      "path": "content/pages",
-      "fields": [
-        {
-          "type": "string",
-          "label": "Title",
-          "name": "title",
-          "namespace": [
-            "pages",
-            "title"
-          ]
-        },
-        {
-          "type": "object",
-          "label": "Sections",
-          "name": "sections",
-          "list": true,
-          "templates": [
-            {
-              "name": "content",
-              "label": "Content",
-              "ui": {
-                "defaultItem": {
-                  "body": "Enter some content here!"
-                }
-              },
-              "fields": [
-                {
-                  "type": "string",
-                  "ui": {
-                    "component": "markdown"
-                  },
-                  "label": "Body",
-                  "name": "body",
-                  "namespace": [
-                    "pages",
-                    "sections",
-                    "content",
-                    "body"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "label": "Image",
-                  "name": "image",
-                  "fields": [
-                    {
-                      "name": "src",
-                      "label": "Image",
-                      "type": "image",
-                      "namespace": [
-                        "pages",
-                        "sections",
-                        "content",
-                        "image",
-                        "src"
-                      ]
-                    },
-                    {
-                      "name": "alt",
-                      "label": "Assistive Text",
-                      "type": "string",
-                      "namespace": [
-                        "pages",
-                        "sections",
-                        "content",
-                        "image",
-                        "alt"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "pages",
-                    "sections",
-                    "content",
-                    "image"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "label": "Color",
-                  "name": "color",
-                  "options": [
-                    {
-                      "label": "White",
-                      "value": "white"
-                    },
-                    {
-                      "label": "Brown",
-                      "value": "brown"
-                    },
-                    {
-                      "label": "Yellow",
-                      "value": "yellow"
-                    }
-                  ],
-                  "namespace": [
-                    "pages",
-                    "sections",
-                    "content",
-                    "color"
-                  ]
-                }
-              ],
-              "namespace": [
-                "pages",
-                "sections",
-                "content"
-              ]
-            }
-          ],
-          "namespace": [
-            "pages",
-            "sections"
-          ]
-        }
-      ],
-      "namespace": [
-        "pages"
       ]
     }
   ],

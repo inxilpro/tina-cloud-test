@@ -5,16 +5,25 @@ const footerField = {
 	fields: [
 		{
 			type: "object",
-			label: "Links",
+			label: "Sections",
 			name: "links",
 			list: true,
 			ui: {
 				defaultItem: {
+					uuid: "",
 					title: "Footer Section",
-					items: [{label: "Home", href: "/"}]
+					items: [{uuid: "", label: "Home", href: "/"}]
 				},
 			},
 			fields: [
+				{
+					type: "string",
+					label: "ID",
+					name: "uuid",
+					ui: {
+						component: "uuid",
+					}
+				},
 				{
 					type: "string",
 					label: "Section Title",
@@ -25,7 +34,22 @@ const footerField = {
 					label: "Links",
 					name: "items",
 					list: true,
+					ui: {
+						defaultItem: {
+							uuid: "",
+							label: "Home",
+							href: "/",
+						},
+					},
 					fields: [
+						{
+							type: "string",
+							label: "ID",
+							name: "uuid",
+							ui: {
+								component: "uuid",
+							}
+						},
 						{
 							type: "string",
 							label: "Link Title",

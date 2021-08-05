@@ -10,11 +10,20 @@ const headerField = {
 			list: true,
 			ui: {
 				defaultItem: {
-					href: "home",
+					uuid: "",
 					label: "Home",
+					href: "/",
 				},
 			},
 			fields: [
+				{
+					type: "string",
+					label: "ID",
+					name: "uuid",
+					ui: {
+						component: "uuid",
+					}
+				},
 				{
 					type: "string",
 					label: "Label",

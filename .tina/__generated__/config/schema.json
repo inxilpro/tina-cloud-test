@@ -1,116 +1,7 @@
 {
   "collections": [
     {
-      "label": "Global",
-      "name": "global",
-      "path": "content/global",
-      "fields": [
-        {
-          "type": "object",
-          "label": "Header",
-          "name": "header",
-          "fields": [
-            {
-              "type": "object",
-              "label": "Nav Links",
-              "name": "nav",
-              "list": true,
-              "ui": {
-                "defaultItem": {
-                  "href": "home",
-                  "label": "Home"
-                }
-              },
-              "fields": [
-                {
-                  "type": "string",
-                  "label": "Label",
-                  "name": "label"
-                },
-                {
-                  "type": "string",
-                  "label": "Link",
-                  "name": "href"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "object",
-          "label": "Footer",
-          "name": "footer",
-          "fields": [
-            {
-              "type": "object",
-              "label": "Links",
-              "name": "links",
-              "list": true,
-              "ui": {
-                "defaultItem": {
-                  "title": "Footer Section",
-                  "items": [
-                    {
-                      "label": "Home",
-                      "href": "/"
-                    }
-                  ]
-                }
-              },
-              "fields": [
-                {
-                  "type": "string",
-                  "label": "Section Title",
-                  "name": "title"
-                },
-                {
-                  "type": "object",
-                  "label": "Links",
-                  "name": "items",
-                  "list": true,
-                  "fields": [
-                    {
-                      "type": "string",
-                      "label": "Link Title",
-                      "name": "label"
-                    },
-                    {
-                      "type": "string",
-                      "label": "Link URL",
-                      "name": "href"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "label": "Social Links",
-              "name": "social",
-              "fields": [
-                {
-                  "type": "string",
-                  "label": "Facebook",
-                  "name": "facebook"
-                },
-                {
-                  "type": "string",
-                  "label": "Twitter",
-                  "name": "twitter"
-                },
-                {
-                  "type": "string",
-                  "label": "Instagram",
-                  "name": "instagram"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label": "Pages",
+      "label": "Page",
       "name": "pages",
       "path": "content/pages",
       "fields": [
@@ -130,10 +21,20 @@
               "label": "Content",
               "ui": {
                 "defaultItem": {
-                  "body": "Enter some content here!"
+                  "uuid": "",
+                  "body": "Enter some content here!",
+                  "color": "white"
                 }
               },
               "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  }
+                },
                 {
                   "type": "string",
                   "ui": {
@@ -177,6 +78,149 @@
                       "value": "yellow"
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Site Navigation",
+      "name": "global",
+      "path": "content/global",
+      "fields": [
+        {
+          "type": "object",
+          "label": "Header",
+          "name": "header",
+          "fields": [
+            {
+              "type": "object",
+              "label": "Nav Links",
+              "name": "nav",
+              "list": true,
+              "ui": {
+                "defaultItem": {
+                  "uuid": "",
+                  "label": "Home",
+                  "href": "/"
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  }
+                },
+                {
+                  "type": "string",
+                  "label": "Label",
+                  "name": "label"
+                },
+                {
+                  "type": "string",
+                  "label": "Link",
+                  "name": "href"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Footer",
+          "name": "footer",
+          "fields": [
+            {
+              "type": "object",
+              "label": "Sections",
+              "name": "links",
+              "list": true,
+              "ui": {
+                "defaultItem": {
+                  "uuid": "",
+                  "title": "Footer Section",
+                  "items": [
+                    {
+                      "uuid": "",
+                      "label": "Home",
+                      "href": "/"
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "ID",
+                  "name": "uuid",
+                  "ui": {
+                    "component": "uuid"
+                  }
+                },
+                {
+                  "type": "string",
+                  "label": "Section Title",
+                  "name": "title"
+                },
+                {
+                  "type": "object",
+                  "label": "Links",
+                  "name": "items",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "uuid": "",
+                      "label": "Home",
+                      "href": "/"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "ID",
+                      "name": "uuid",
+                      "ui": {
+                        "component": "uuid"
+                      }
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link Title",
+                      "name": "label"
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link URL",
+                      "name": "href"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "label": "Social Links",
+              "name": "social",
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "type": "string",
+                  "label": "Twitter",
+                  "name": "twitter"
+                },
+                {
+                  "type": "string",
+                  "label": "Instagram",
+                  "name": "instagram"
                 }
               ]
             }

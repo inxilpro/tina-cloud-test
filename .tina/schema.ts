@@ -4,7 +4,7 @@ import globalCollection from "./collections/global";
 
 export default defineSchema({
   collections: [
-    globalCollection as TinaCloudCollection,
-    pagesCollection as TinaCloudCollection
+    pagesCollection as TinaCloudCollection,
+    globalCollection as TinaCloudCollection
   ],
 });

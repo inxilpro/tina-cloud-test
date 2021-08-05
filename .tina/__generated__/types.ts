@@ -63,10 +63,10 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
-  getGlobalDocument: GlobalDocument;
-  getGlobalList: GlobalConnection;
   getPagesDocument: PagesDocument;
   getPagesList: PagesConnection;
+  getGlobalDocument: GlobalDocument;
+  getGlobalList: GlobalConnection;
 };
 
 
@@ -94,12 +94,12 @@ export type QueryGetDocumentListArgs = {
 };
 
 
-export type QueryGetGlobalDocumentArgs = {
+export type QueryGetPagesDocumentArgs = {
   relativePath?: Maybe<Scalars['String']>;
 };
 
 
-export type QueryGetGlobalListArgs = {
+export type QueryGetPagesListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -107,12 +107,12 @@ export type QueryGetGlobalListArgs = {
 };
 
 
-export type QueryGetPagesDocumentArgs = {
+export type QueryGetGlobalDocumentArgs = {
   relativePath?: Maybe<Scalars['String']>;
 };
 
 
-export type QueryGetPagesListArgs = {
+export type QueryGetGlobalListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -153,10 +153,56 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = GlobalDocument | PagesDocument;
+export type DocumentNode = PagesDocument | GlobalDocument;
+
+export type PagesSectionsContentImage = {
+  __typename?: 'PagesSectionsContentImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesSectionsContent = {
+  __typename?: 'PagesSectionsContent';
+  uuid?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+  image?: Maybe<PagesSectionsContentImage>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesSections = PagesSectionsContent;
+
+export type Pages = {
+  __typename?: 'Pages';
+  title?: Maybe<Scalars['String']>;
+  sections?: Maybe<Array<Maybe<PagesSections>>>;
+};
+
+export type PagesDocument = Node & Document & {
+  __typename?: 'PagesDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Pages;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type PagesConnectionEdges = {
+  __typename?: 'PagesConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<PagesDocument>;
+};
+
+export type PagesConnection = Connection & {
+  __typename?: 'PagesConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
+};
 
 export type GlobalHeaderNav = {
   __typename?: 'GlobalHeaderNav';
+  uuid?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
@@ -168,12 +214,14 @@ export type GlobalHeader = {
 
 export type GlobalFooterLinksItems = {
   __typename?: 'GlobalFooterLinksItems';
+  uuid?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
 
 export type GlobalFooterLinks = {
   __typename?: 'GlobalFooterLinks';
+  uuid?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   items?: Maybe<Array<Maybe<GlobalFooterLinksItems>>>;
 };
@@ -220,56 +268,12 @@ export type GlobalConnection = Connection & {
   edges?: Maybe<Array<Maybe<GlobalConnectionEdges>>>;
 };
 
-export type PagesSectionsContentImage = {
-  __typename?: 'PagesSectionsContentImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesSectionsContent = {
-  __typename?: 'PagesSectionsContent';
-  body?: Maybe<Scalars['String']>;
-  image?: Maybe<PagesSectionsContentImage>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesSections = PagesSectionsContent;
-
-export type Pages = {
-  __typename?: 'Pages';
-  title?: Maybe<Scalars['String']>;
-  sections?: Maybe<Array<Maybe<PagesSections>>>;
-};
-
-export type PagesDocument = Node & Document & {
-  __typename?: 'PagesDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Pages;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
-};
-
-export type PagesConnectionEdges = {
-  __typename?: 'PagesConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PagesDocument>;
-};
-
-export type PagesConnection = Connection & {
-  __typename?: 'PagesConnection';
-  pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
-  updateGlobalDocument: GlobalDocument;
   updatePagesDocument: PagesDocument;
+  updateGlobalDocument: GlobalDocument;
 };
 
 
@@ -287,23 +291,45 @@ export type MutationUpdateDocumentArgs = {
 };
 
 
-export type MutationUpdateGlobalDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: GlobalMutation;
-};
-
-
 export type MutationUpdatePagesDocumentArgs = {
   relativePath: Scalars['String'];
   params: PagesMutation;
 };
 
+
+export type MutationUpdateGlobalDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: GlobalMutation;
+};
+
 export type DocumentMutation = {
-  global?: Maybe<GlobalMutation>;
   pages?: Maybe<PagesMutation>;
+  global?: Maybe<GlobalMutation>;
+};
+
+export type PagesSectionsContentImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesSectionsContentMutation = {
+  uuid?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+  image?: Maybe<PagesSectionsContentImageMutation>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesSectionsMutation = {
+  content?: Maybe<PagesSectionsContentMutation>;
+};
+
+export type PagesMutation = {
+  title?: Maybe<Scalars['String']>;
+  sections?: Maybe<Array<Maybe<PagesSectionsMutation>>>;
 };
 
 export type GlobalHeaderNavMutation = {
+  uuid?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
@@ -313,11 +339,13 @@ export type GlobalHeaderMutation = {
 };
 
 export type GlobalFooterLinksItemsMutation = {
+  uuid?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
 
 export type GlobalFooterLinksMutation = {
+  uuid?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   items?: Maybe<Array<Maybe<GlobalFooterLinksItemsMutation>>>;
 };
@@ -336,25 +364,5 @@ export type GlobalFooterMutation = {
 export type GlobalMutation = {
   header?: Maybe<GlobalHeaderMutation>;
   footer?: Maybe<GlobalFooterMutation>;
-};
-
-export type PagesSectionsContentImageMutation = {
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesSectionsContentMutation = {
-  body?: Maybe<Scalars['String']>;
-  image?: Maybe<PagesSectionsContentImageMutation>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesSectionsMutation = {
-  content?: Maybe<PagesSectionsContentMutation>;
-};
-
-export type PagesMutation = {
-  title?: Maybe<Scalars['String']>;
-  sections?: Maybe<Array<Maybe<PagesSectionsMutation>>>;
 };
 

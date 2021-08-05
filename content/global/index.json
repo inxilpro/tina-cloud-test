@@ -2,10 +2,12 @@
   "header": {
     "nav": [
       {
+        "uuid": "26a5e79a-fba1-4d4b-8019-68cc6c76b8fa",
         "label": "Home",
         "href": "home"
       },
       {
+        "uuid": "b1a12177-6bed-4eb5-a1fc-6148ce1f69e5",
         "label": "About",
         "href": "about"
       }
@@ -14,19 +16,43 @@
   "footer": {
     "links": [
       {
+        "uuid": "ea57f35f-9564-4a76-9683-1cb4fb955598",
         "title": "Our Company",
         "items": [
           {
+            "uuid": "07faf64d-6902-4fb3-8dd3-4e22bc395d19",
             "label": "FAQ",
             "href": "faq"
           },
           {
+            "uuid": "9bf8295d-649b-4dc4-bdd5-a24a5c5339db",
             "label": "Home",
             "href": "home"
           },
           {
+            "uuid": "e8fcdd5c-61a8-4067-932f-3d338492bb70",
             "label": "About",
             "href": "about-us"
+          }
+        ]
+      },
+      {
+        "title": "More",
+        "items": [
+          {
+            "uuid": "091e588f-1b03-4a7d-b112-8fd9147ff6eb",
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "uuid": "de5eb4eb-95a4-48ab-819f-4a23c46083df",
+            "label": "Contact Us",
+            "href": "/"
+          },
+          {
+            "uuid": "c02d7f15-b3f5-47a6-8e24-98016e1d1527",
+            "label": "Something",
+            "href": "/"
           }
         ]
       }

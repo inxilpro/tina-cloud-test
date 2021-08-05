@@ -45,10 +45,10 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
-  getGlobalDocument(relativePath: String): GlobalDocument!
-  getGlobalList(before: String, after: String, first: Int, last: Int): GlobalConnection!
   getPagesDocument(relativePath: String): PagesDocument!
   getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
+  getGlobalDocument(relativePath: String): GlobalDocument!
+  getGlobalList(before: String, after: String, first: Int, last: Int): GlobalConnection!
 }
 
 type DocumentConnectionEdges {
@@ -74,9 +74,49 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = GlobalDocument | PagesDocument
+union DocumentNode = PagesDocument | GlobalDocument
+
+type PagesSectionsContentImage {
+  src: String
+  alt: String
+}
+
+type PagesSectionsContent {
+  uuid: String
+  body: String
+  image: PagesSectionsContentImage
+  color: String
+}
+
+union PagesSections = PagesSectionsContent
+
+type Pages {
+  title: String
+  sections: [PagesSections]
+}
+
+type PagesDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Pages!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type PagesConnectionEdges {
+  cursor: String
+  node: PagesDocument
+}
+
+type PagesConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [PagesConnectionEdges]
+}
 
 type GlobalHeaderNav {
+  uuid: String
   label: String
   href: String
 }
@@ -86,11 +126,13 @@ type GlobalHeader {
 }
 
 type GlobalFooterLinksItems {
+  uuid: String
   label: String
   href: String
 }
 
 type GlobalFooterLinks {
+  uuid: String
   title: String
   items: [GlobalFooterLinksItems]
 }
@@ -131,57 +173,41 @@ type GlobalConnection implements Connection {
   edges: [GlobalConnectionEdges]
 }
 
-type PagesSectionsContentImage {
+type Mutation {
+  addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
+  updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+  updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
+}
+
+input DocumentMutation {
+  pages: PagesMutation
+  global: GlobalMutation
+}
+
+input PagesSectionsContentImageMutation {
   src: String
   alt: String
 }
 
-type PagesSectionsContent {
+input PagesSectionsContentMutation {
+  uuid: String
   body: String
-  image: PagesSectionsContentImage
+  image: PagesSectionsContentImageMutation
   color: String
 }
 
-union PagesSections = PagesSectionsContent
+input PagesSectionsMutation {
+  content: PagesSectionsContentMutation
+}
 
-type Pages {
+input PagesMutation {
   title: String
-  sections: [PagesSections]
-}
-
-type PagesDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Pages!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type PagesConnectionEdges {
-  cursor: String
-  node: PagesDocument
-}
-
-type PagesConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [PagesConnectionEdges]
-}
-
-type Mutation {
-  addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
-  updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
-  updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
-}
-
-input DocumentMutation {
-  global: GlobalMutation
-  pages: PagesMutation
+  sections: [PagesSectionsMutation]
 }
 
 input GlobalHeaderNavMutation {
+  uuid: String
   label: String
   href: String
 }
@@ -191,11 +217,13 @@ input GlobalHeaderMutation {
 }
 
 input GlobalFooterLinksItemsMutation {
+  uuid: String
   label: String
   href: String
 }
 
 input GlobalFooterLinksMutation {
+  uuid: String
   title: String
   items: [GlobalFooterLinksItemsMutation]
 }
@@ -214,26 +242,6 @@ input GlobalFooterMutation {
 input GlobalMutation {
   header: GlobalHeaderMutation
   footer: GlobalFooterMutation
-}
-
-input PagesSectionsContentImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesSectionsContentMutation {
-  body: String
-  image: PagesSectionsContentImageMutation
-  color: String
-}
-
-input PagesSectionsMutation {
-  content: PagesSectionsContentMutation
-}
-
-input PagesMutation {
-  title: String
-  sections: [PagesSectionsMutation]
 }
 
 schema {

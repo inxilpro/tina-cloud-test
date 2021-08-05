@@ -33,8 +33,10 @@ export const layoutQueryFragment = `
       }
       footer {
         links {
+          uuid
           title
           items {
+            uuid
             label
             href
           }
