@@ -64,77 +64,59 @@
           "fields": [
             {
               "type": "object",
-              "label": "Footer Links",
-              "name": "nav",
+              "label": "Links",
+              "name": "links",
               "list": true,
               "ui": {
                 "defaultItem": {
-                  "href": "/",
-                  "label": "Home"
+                  "title": "Footer Section",
+                  "items": [
+                    {
+                      "label": "Home",
+                      "href": "/"
+                    }
+                  ]
                 }
               },
               "fields": [
                 {
                   "type": "string",
-                  "label": "Title",
-                  "name": "label",
+                  "label": "Section Title",
+                  "name": "title",
                   "namespace": [
                     "global",
                     "footer",
-                    "nav",
-                    "label"
+                    "links",
+                    "title"
                   ]
                 },
                 {
-                  "type": "string",
-                  "label": "URL",
-                  "name": "href",
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "nav",
-                    "href"
-                  ]
-                }
-              ],
-              "namespace": [
-                "global",
-                "footer",
-                "nav"
-              ]
-            },
-            {
-              "type": "object",
-              "label": "Footer Sections",
-              "name": "categories",
-              "fields": [
-                {
                   "type": "object",
-                  "label": "Solutions",
-                  "name": "solutions",
+                  "label": "Links",
+                  "name": "items",
                   "list": true,
                   "fields": [
                     {
                       "type": "string",
-                      "label": "Title",
+                      "label": "Link Title",
                       "name": "label",
                       "namespace": [
                         "global",
                         "footer",
-                        "categories",
-                        "solutions",
+                        "links",
+                        "items",
                         "label"
                       ]
                     },
                     {
                       "type": "string",
-                      "label": "URL",
+                      "label": "Link URL",
                       "name": "href",
                       "namespace": [
                         "global",
                         "footer",
-                        "categories",
-                        "solutions",
+                        "links",
+                        "items",
                         "href"
                       ]
                     }
@@ -142,53 +124,15 @@
                   "namespace": [
                     "global",
                     "footer",
-                    "categories",
-                    "solutions"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "label": "Support",
-                  "name": "support",
-                  "list": true,
-                  "fields": [
-                    {
-                      "type": "string",
-                      "label": "Title",
-                      "name": "label",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "categories",
-                        "support",
-                        "label"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "URL",
-                      "name": "href",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "categories",
-                        "support",
-                        "href"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "categories",
-                    "support"
+                    "links",
+                    "items"
                   ]
                 }
               ],
               "namespace": [
                 "global",
                 "footer",
-                "categories"
+                "links"
               ]
             },
             {

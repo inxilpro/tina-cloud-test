@@ -15,7 +15,6 @@ export const getStaticProps = async ({params}) => {
       query ContentQuery($relativePath: String!) {
         ${layoutQueryFragment}
         getPagesDocument(relativePath: $relativePath) {
-          __typename
           id
           data {
             __typename

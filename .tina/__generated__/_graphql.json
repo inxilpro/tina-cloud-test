@@ -1272,7 +1272,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "GlobalFooterNav"
+        "value": "GlobalFooterLinksItems"
       },
       "fields": [
         {
@@ -1313,14 +1313,14 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "GlobalFooterCategoriesSolutions"
+        "value": "GlobalFooterLinks"
       },
       "fields": [
         {
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "label"
+            "value": "title"
           },
           "arguments": [],
           "type": {
@@ -1335,74 +1335,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "href"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "ObjectTypeDefinition",
-      "interfaces": [],
-      "directives": [],
-      "name": {
-        "kind": "Name",
-        "value": "GlobalFooterCategoriesSupport"
-      },
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "label"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "href"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "ObjectTypeDefinition",
-      "interfaces": [],
-      "directives": [],
-      "name": {
-        "kind": "Name",
-        "value": "GlobalFooterCategories"
-      },
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "solutions"
+            "value": "items"
           },
           "arguments": [],
           "type": {
@@ -1411,25 +1344,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "GlobalFooterCategoriesSolutions"
-              }
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "support"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "ListType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "GlobalFooterCategoriesSupport"
+                "value": "GlobalFooterLinksItems"
               }
             }
           }
@@ -1505,7 +1420,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "nav"
+            "value": "links"
           },
           "arguments": [],
           "type": {
@@ -1514,23 +1429,8 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "GlobalFooterNav"
+                "value": "GlobalFooterLinks"
               }
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "categories"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "GlobalFooterCategories"
             }
           }
         },
@@ -2598,7 +2498,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "GlobalFooterNavMutation"
+        "value": "GlobalFooterLinksItemsMutation"
       },
       "fields": [
         {
@@ -2635,14 +2535,14 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "GlobalFooterCategoriesSolutionsMutation"
+        "value": "GlobalFooterLinksMutation"
       },
       "fields": [
         {
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "label"
+            "value": "title"
           },
           "type": {
             "kind": "NamedType",
@@ -2656,67 +2556,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "href"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "InputObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "GlobalFooterCategoriesSupportMutation"
-      },
-      "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "label"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "href"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "InputObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "GlobalFooterCategoriesMutation"
-      },
-      "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "solutions"
+            "value": "items"
           },
           "type": {
             "kind": "ListType",
@@ -2724,24 +2564,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "GlobalFooterCategoriesSolutionsMutation"
-              }
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "support"
-          },
-          "type": {
-            "kind": "ListType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "GlobalFooterCategoriesSupportMutation"
+                "value": "GlobalFooterLinksItemsMutation"
               }
             }
           }
@@ -2810,7 +2633,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "nav"
+            "value": "links"
           },
           "type": {
             "kind": "ListType",
@@ -2818,22 +2641,8 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "GlobalFooterNavMutation"
+                "value": "GlobalFooterLinksMutation"
               }
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "categories"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "GlobalFooterCategoriesMutation"
             }
           }
         },

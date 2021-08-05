@@ -20,7 +20,7 @@ export default function Page(props: PagesDocument) {
 				<PagesSection key={i} {...section} />
 			))}
 			
-			<div className={`container`}>
+			<div className={`container hidden`}>
 				<pre
 					className={`bg-gray-600 rounded p-4 text-white font-mono my-6`}
 					children={JSON.stringify(props, null, 2)}

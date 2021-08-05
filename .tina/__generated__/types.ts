@@ -166,28 +166,16 @@ export type GlobalHeader = {
   nav?: Maybe<Array<Maybe<GlobalHeaderNav>>>;
 };
 
-export type GlobalFooterNav = {
-  __typename?: 'GlobalFooterNav';
+export type GlobalFooterLinksItems = {
+  __typename?: 'GlobalFooterLinksItems';
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
 
-export type GlobalFooterCategoriesSolutions = {
-  __typename?: 'GlobalFooterCategoriesSolutions';
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterCategoriesSupport = {
-  __typename?: 'GlobalFooterCategoriesSupport';
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterCategories = {
-  __typename?: 'GlobalFooterCategories';
-  solutions?: Maybe<Array<Maybe<GlobalFooterCategoriesSolutions>>>;
-  support?: Maybe<Array<Maybe<GlobalFooterCategoriesSupport>>>;
+export type GlobalFooterLinks = {
+  __typename?: 'GlobalFooterLinks';
+  title?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<GlobalFooterLinksItems>>>;
 };
 
 export type GlobalFooterSocial = {
@@ -199,8 +187,7 @@ export type GlobalFooterSocial = {
 
 export type GlobalFooter = {
   __typename?: 'GlobalFooter';
-  nav?: Maybe<Array<Maybe<GlobalFooterNav>>>;
-  categories?: Maybe<GlobalFooterCategories>;
+  links?: Maybe<Array<Maybe<GlobalFooterLinks>>>;
   social?: Maybe<GlobalFooterSocial>;
 };
 
@@ -325,24 +312,14 @@ export type GlobalHeaderMutation = {
   nav?: Maybe<Array<Maybe<GlobalHeaderNavMutation>>>;
 };
 
-export type GlobalFooterNavMutation = {
+export type GlobalFooterLinksItemsMutation = {
   label?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
 
-export type GlobalFooterCategoriesSolutionsMutation = {
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterCategoriesSupportMutation = {
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterCategoriesMutation = {
-  solutions?: Maybe<Array<Maybe<GlobalFooterCategoriesSolutionsMutation>>>;
-  support?: Maybe<Array<Maybe<GlobalFooterCategoriesSupportMutation>>>;
+export type GlobalFooterLinksMutation = {
+  title?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<GlobalFooterLinksItemsMutation>>>;
 };
 
 export type GlobalFooterSocialMutation = {
@@ -352,8 +329,7 @@ export type GlobalFooterSocialMutation = {
 };
 
 export type GlobalFooterMutation = {
-  nav?: Maybe<Array<Maybe<GlobalFooterNavMutation>>>;
-  categories?: Maybe<GlobalFooterCategoriesMutation>;
+  links?: Maybe<Array<Maybe<GlobalFooterLinksMutation>>>;
   social?: Maybe<GlobalFooterSocialMutation>;
 };
 

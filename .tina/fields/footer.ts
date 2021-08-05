@@ -5,65 +5,35 @@ const footerField = {
 	fields: [
 		{
 			type: "object",
-			label: "Footer Links",
-			name: "nav",
+			label: "Links",
+			name: "links",
 			list: true,
 			ui: {
 				defaultItem: {
-					href: "/",
-					label: "Home",
+					title: "Footer Section",
+					items: [{label: "Home", href: "/"}]
 				},
 			},
 			fields: [
 				{
 					type: "string",
-					label: "Title",
-					name: "label",
+					label: "Section Title",
+					name: "title",
 				},
-				{
-					type: "string",
-					label: "URL",
-					name: "href",
-				},
-			],
-		},
-		{
-			type: "object",
-			label: "Footer Sections",
-			name: "categories",
-			fields: [
 				{
 					type: "object",
-					label: "Solutions",
-					name: "solutions",
+					label: "Links",
+					name: "items",
 					list: true,
 					fields: [
 						{
 							type: "string",
-							label: "Title",
+							label: "Link Title",
 							name: "label",
 						},
 						{
 							type: "string",
-							label: "URL",
-							name: "href",
-						},
-					],
-				},
-				{
-					type: "object",
-					label: "Support",
-					name: "support",
-					list: true,
-					fields: [
-						{
-							type: "string",
-							label: "Title",
-							name: "label",
-						},
-						{
-							type: "string",
-							label: "URL",
+							label: "Link URL",
 							name: "href",
 						},
 					],

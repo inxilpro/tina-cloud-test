@@ -2,7 +2,7 @@ import React from "react";
 import type {GlobalFooter} from "../.tina/__generated__/types";
 
 export default function Footer(props: GlobalFooter) {
-	const {social, categories = {}} = props;
+	const {social, links} = props;
 	return (
 		<footer className="bg-brown-500 text-white flex-shrink-0">
 			<div className="container py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
@@ -36,38 +36,22 @@ export default function Footer(props: GlobalFooter) {
 						</div>
 						
 						<div className={`space-y-8 sm:space-y-0 sm:flex sm:space-x-12 sm:ml-auto`}>
-							{('solutions' in categories) && (
-								<div>
+							{ links.map(({ title, items }) => (
+								<div key={ title }>
 									<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
-										Solutions
+										{ title }
 									</p>
 									<nav className="" aria-label="Solutions">
-										{categories.solutions.map((item) => (
-											<div key={item.label} className="pb-1">
-												<a href={item.href} className="text-base text-white hover:text-yellow-500">
-													{item.label}
+										{items.map(({ label, href }, index) => (
+											<div key={index} className="pb-1">
+												<a href={href} className="text-base text-white hover:text-yellow-500">
+													{label}
 												</a>
 											</div>
 										))}
 									</nav>
 								</div>
-							)}
-							{('support' in categories) && (
-								<div>
-									<p className={`text-sm font-semibold opacity-60 tracking-wider uppercase`}>
-										Support
-									</p>
-									<nav className="" aria-label="Solutions">
-										{categories.support.map((item) => (
-											<div key={item.label} className="pb-1">
-												<a href={item.href} className="text-base text-white hover:text-yellow-500">
-													{item.label}
-												</a>
-											</div>
-										))}
-									</nav>
-								</div>
-							)}
+							))}
 						</div>
 					</div>
 					

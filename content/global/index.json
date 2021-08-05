@@ -3,41 +3,34 @@
     "nav": [
       {
         "label": "Home",
-        "href": "/"
+        "href": "home"
       },
       {
-        "label": "About Us",
-        "href": "/about"
-      },
-      {
-        "label": "Our Blog",
-        "href": "/posts"
+        "label": "About",
+        "href": "about"
       }
     ]
   },
   "footer": {
-    "categories": {
-      "solutions": [
-        {
-          "label": "One",
-          "href": "/"
-        },
-        {
-          "label": "Here is somethign",
-          "href": "/"
-        },
-        {
-          "label": "Here is something else",
-          "href": "/"
-        }
-      ],
-      "support": [
-        {
-          "label": "Get help",
-          "href": "/"
-        }
-      ]
-    },
+    "links": [
+      {
+        "title": "Our Company",
+        "items": [
+          {
+            "label": "FAQ",
+            "href": "faq"
+          },
+          {
+            "label": "Home",
+            "href": "home"
+          },
+          {
+            "label": "About",
+            "href": "about-us"
+          }
+        ]
+      }
+    ],
     "social": {
       "facebook": "/fb",
       "twitter": "/tw",

@@ -28,7 +28,7 @@ function PopoverHeader({open, headerProps}) {
 		}
 	}, [direction]);
 	
-	const {nav} = headerProps;
+	const {nav = []} = headerProps;
 	
 	const headerClasses = hidden
 		? `transform transition-transform -translate-y-full`

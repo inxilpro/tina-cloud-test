@@ -32,16 +32,9 @@ export const layoutQueryFragment = `
         }
       }
       footer {
-        nav {
-          label
-          href
-        }
-        categories {
-          solutions {
-            label
-            href
-          }
-          support {
+        links {
+          title
+          items {
             label
             href
           }

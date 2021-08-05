@@ -85,24 +85,14 @@ type GlobalHeader {
   nav: [GlobalHeaderNav]
 }
 
-type GlobalFooterNav {
+type GlobalFooterLinksItems {
   label: String
   href: String
 }
 
-type GlobalFooterCategoriesSolutions {
-  label: String
-  href: String
-}
-
-type GlobalFooterCategoriesSupport {
-  label: String
-  href: String
-}
-
-type GlobalFooterCategories {
-  solutions: [GlobalFooterCategoriesSolutions]
-  support: [GlobalFooterCategoriesSupport]
+type GlobalFooterLinks {
+  title: String
+  items: [GlobalFooterLinksItems]
 }
 
 type GlobalFooterSocial {
@@ -112,8 +102,7 @@ type GlobalFooterSocial {
 }
 
 type GlobalFooter {
-  nav: [GlobalFooterNav]
-  categories: GlobalFooterCategories
+  links: [GlobalFooterLinks]
   social: GlobalFooterSocial
 }
 
@@ -201,24 +190,14 @@ input GlobalHeaderMutation {
   nav: [GlobalHeaderNavMutation]
 }
 
-input GlobalFooterNavMutation {
+input GlobalFooterLinksItemsMutation {
   label: String
   href: String
 }
 
-input GlobalFooterCategoriesSolutionsMutation {
-  label: String
-  href: String
-}
-
-input GlobalFooterCategoriesSupportMutation {
-  label: String
-  href: String
-}
-
-input GlobalFooterCategoriesMutation {
-  solutions: [GlobalFooterCategoriesSolutionsMutation]
-  support: [GlobalFooterCategoriesSupportMutation]
+input GlobalFooterLinksMutation {
+  title: String
+  items: [GlobalFooterLinksItemsMutation]
 }
 
 input GlobalFooterSocialMutation {
@@ -228,8 +207,7 @@ input GlobalFooterSocialMutation {
 }
 
 input GlobalFooterMutation {
-  nav: [GlobalFooterNavMutation]
-  categories: GlobalFooterCategoriesMutation
+  links: [GlobalFooterLinksMutation]
   social: GlobalFooterSocialMutation
 }
 
